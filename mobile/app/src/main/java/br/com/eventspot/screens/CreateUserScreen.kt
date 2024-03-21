@@ -81,13 +81,13 @@ fun CreateUserScreen(navController: NavController) {
 
             )
 
-        CreateUserCard()
+        CreateUserCard(navController)
 
     }
 }
 
 @Composable
-fun CreateUserCard() {
+fun CreateUserCard(navController: NavController) {
     val offset = Offset(1.0f, 1.0f)
 
     Card(
@@ -166,7 +166,7 @@ fun CreateUserCard() {
 
             Spacer(modifier = Modifier.height(16.dp))
             Button(
-                onClick = { /* TODO: Implement login logic */ },
+                onClick = { navController.navigate("login") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(48.dp),
@@ -199,7 +199,7 @@ fun CreateUserCard() {
             ClickableText(
                 text = AnnotatedString("Entrar"),
                 modifier = Modifier.clickable {},
-                onClick = { /* Implementar a lógica de navegação para a tela de inscrição */ },
+                onClick = { navController.navigate("login") },
                 style = TextStyle(
                     color = Color.White,
                     fontWeight = FontWeight.Bold,

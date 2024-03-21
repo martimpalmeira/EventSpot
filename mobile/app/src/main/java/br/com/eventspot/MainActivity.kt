@@ -3,6 +3,9 @@ package br.com.eventspot
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.AnimatedContentTransitionScope
+import androidx.compose.animation.ExperimentalAnimationApi
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,13 +17,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.eventspot.screens.CreateEventScreen
-import br.com.eventspot.screens.CreateUserCard
 import br.com.eventspot.screens.CreateUserScreen
 import br.com.eventspot.screens.HomeScreen
 import br.com.eventspot.screens.LoginScreen
 import br.com.eventspot.ui.theme.EventSpotTheme
 
 class MainActivity : ComponentActivity() {
+    @OptIn(ExperimentalAnimationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -31,11 +34,26 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    NavHost(navController = navController, startDestination = "login") {
+                    NavHost(
+                        navController = navController,
+                        startDestination = "login",
+                        enterTransition = {
+                            slideIntoContainer(
+                                towards = (AnimatedContentTransitionScope.SlideDirection.Start),
+                                animationSpec = tween(700)
+                            )
+                        },
+                        exitTransition = {
+                            slideOutOfContainer(
+                                towards = (AnimatedContentTransitionScope.SlideDirection.Start),
+                                animationSpec = tween(700)
+                            )
+                        }) {
                         composable(route = "login") {
                             LoginScreen(navController)
+
                         }
-//
+
                         composable(route = "home") {
                             HomeScreen(navController)
                         }
@@ -47,25 +65,26 @@ class MainActivity : ComponentActivity() {
                         composable(route = "create-event") {
                             CreateEventScreen(navController)
                         }
-//                       
+
+                    }
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    EventSpotTheme {
-        Greeting("Android")
+    @Composable
+    fun Greeting(name: String, modifier: Modifier = Modifier) {
+        Text(
+            text = "Hello $name!",
+            modifier = modifier
+        )
     }
-}}
+
+    @Preview(showBackground = true)
+    @Composable
+    fun GreetingPreview() {
+        EventSpotTheme {
+            Greeting("Android")
+        }
+    }
+}

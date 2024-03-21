@@ -2,7 +2,6 @@ package br.com.eventspot.screens
 
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,12 +13,15 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.foundation.text.ClickableText
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
@@ -29,7 +31,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -70,19 +71,37 @@ fun CreateEventScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
+        Column(
+            modifier = Modifier.align(Alignment.Start),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.Start,
 
-        Text(
-            text = text,
-            modifier = Modifier
-                .align(Alignment.Start)
-                .padding(vertical = 16.dp),
-            style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold),
+            ) {
+            IconButton(
+                onClick = { navController.navigate("home") }, // Navegar para a rota "home"
+                modifier = Modifier
+
+            ) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "Voltar",
+                    tint = Color.White,
+                )
+            }
+
+            Text(
+                text = text,
+                modifier = Modifier
+                    .padding(vertical = 16.dp)
+                    .align(Alignment.Start),
+                style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold),
 
 
-            )
+                )
+        }
+
 
         CreateEventCard()
-
 
 
     }
@@ -149,7 +168,7 @@ fun CreateEventCard() {
                     .padding(horizontal = 4.dp, vertical = 2.dp),
                 minLines = 4
 
-                )
+            )
 
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -231,8 +250,6 @@ fun CreateEventCard() {
                     )
                 )
             }
-
-
 
 
         }
