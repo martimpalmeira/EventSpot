@@ -26,8 +26,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.blur
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.AnnotatedString
@@ -43,36 +41,27 @@ import br.com.eventspot.R
 
 
 @Composable
-fun LoginScreen(navController: NavController) {
+fun CreateUserScreen(navController: NavController) {
     val offset = Offset(2.0f, 2.0f)
     val text = buildAnnotatedString {
         withStyle(style = SpanStyle(color = Color.White)) {
-            append("Bem vindo(a) ao ")
+            append("Crie sua conta")
         }
         withStyle(
             style = SpanStyle(
                 color = Color(0xFF7603CB),
             )
         ) {
-            append("EventSpot")
+            append("")
         }
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .blur(radius = 10.dp)
             .background(Color(0xFF2C2C2C))
     )
-
-//    Image(
-//        painter = painterResource(id = R.drawable.teste),
-//        contentDescription = "Background Image",
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .blur(radius = 0.dp),
-//        contentScale = ContentScale.FillBounds ,
-//        colorFilter = ColorFilter.colorMatrix(ColorMatrix().apply { setToSaturation(0f) })
-//    )
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -92,13 +81,13 @@ fun LoginScreen(navController: NavController) {
 
             )
 
-        LoginCard()
+        CreateUserCard()
 
     }
 }
 
 @Composable
-fun LoginCard() {
+fun CreateUserCard() {
     val offset = Offset(1.0f, 1.0f)
 
     Card(
@@ -157,6 +146,25 @@ fun LoginCard() {
                 )
 
             Spacer(modifier = Modifier.height(16.dp))
+            OutlinedTextField(
+                colors = OutlinedTextFieldDefaults.colors(
+                    focusedBorderColor = Color.White,
+                    unfocusedBorderColor = Color.White,
+                    unfocusedTextColor = Color.White,
+                    unfocusedLabelColor = Color.White,
+                    focusedLabelColor = Color.White,
+                    unfocusedLeadingIconColor = Color.White
+                ),
+                value = "",
+                onValueChange = {},
+                label = { Text("Confirmar Senha") },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 4.dp, vertical = 2.dp),
+
+                )
+
+            Spacer(modifier = Modifier.height(16.dp))
             Button(
                 onClick = { /* TODO: Implement login logic */ },
                 modifier = Modifier
@@ -169,7 +177,7 @@ fun LoginCard() {
 
                 ) {
                 Text(
-                    "Login",
+                    "Continue",
                     style = TextStyle(
                         fontWeight = FontWeight.Medium,
                         fontSize = 18.sp
@@ -179,7 +187,7 @@ fun LoginCard() {
 
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = "Não tem uma conta?",
+                text = "Já tem uma conta?",
                 color = Color.White,
                 style = TextStyle(
                     fontSize = 18.sp
@@ -189,7 +197,7 @@ fun LoginCard() {
             )
             Spacer(modifier = Modifier.height(8.dp))
             ClickableText(
-                text = AnnotatedString("Cadastre-se"),
+                text = AnnotatedString("Entrar"),
                 modifier = Modifier.clickable {},
                 onClick = { /* Implementar a lógica de navegação para a tela de inscrição */ },
                 style = TextStyle(

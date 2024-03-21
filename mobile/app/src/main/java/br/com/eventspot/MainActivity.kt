@@ -13,6 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import br.com.eventspot.screens.CreateEventScreen
+import br.com.eventspot.screens.CreateUserCard
+import br.com.eventspot.screens.CreateUserScreen
 import br.com.eventspot.screens.HomeScreen
 import br.com.eventspot.screens.LoginScreen
 import br.com.eventspot.ui.theme.EventSpotTheme
@@ -35,6 +38,14 @@ class MainActivity : ComponentActivity() {
 //
                         composable(route = "home") {
                             HomeScreen(navController)
+                        }
+
+                        composable(route = "create-user") {
+                            CreateUserScreen(navController)
+                        }
+
+                        composable(route = "create-event") {
+                            CreateEventScreen(navController)
                         }
 //                       
                 }

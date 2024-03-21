@@ -1,10 +1,15 @@
 package br.com.eventspot.screens
 
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Scaffold
@@ -13,8 +18,15 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.blur
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 // Definindo um modelo de dados para representar um evento
@@ -27,7 +39,6 @@ data class Event(
     val participants: List<String>
 )
 
-// Função de exemplo que retorna uma lista de eventos
 fun getSampleEvents(): List<Event> {
     return listOf(
         Event(
@@ -45,6 +56,22 @@ fun getSampleEvents(): List<Event> {
             "07/01/2023",
             "Localização do Evento 2",
             listOf("Participante 3", "Participante 4")
+        ),
+        Event(
+            "Evento 3",
+            "Descrição do Evento 3",
+            "05/01/2023",
+            "07/01/2023",
+            "Localização do Evento 3",
+            listOf("Participante 3", "Participante 4")
+        ),
+        Event(
+            "Evento 4",
+            "Descrição do Evento 4",
+            "05/01/2023",
+            "07/01/2023",
+            "Localização do Evento 4",
+            listOf("Participante 3", "Participante 4")
         )
     )
 }
@@ -53,36 +80,121 @@ fun getSampleEvents(): List<Event> {
 fun HomeScreen(navController: NavController) {
     val events = getSampleEvents()
 
-    Scaffold(
-        content = { paddingValues ->
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-            ) {
-                items(events) { event ->
-                    EventCard(event)
-                }
-            }
+    val text = buildAnnotatedString {
+        withStyle(style = SpanStyle(color = Color.White)) {
+            append("Eventos ")
         }
+        withStyle(
+            style = SpanStyle(
+                color = Color(0xFF7603CB),
+            )
+        ) {
+            append("Disponíveis")
+        }
+    }
+
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF2C2C2C))
     )
+
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp),
+
+        verticalArrangement = Arrangement.Top,
+        horizontalAlignment = Alignment.CenterHorizontally
+
+    ) {
+
+
+        Text(
+            text = text,
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(vertical = 16.dp),
+            style = TextStyle(fontSize = 40.sp, fontWeight = FontWeight.Bold),
+
+            )
+
+
+        Button(
+            onClick = { /* TODO: Implement login logic */ },
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(48.dp),
+
+            colors = ButtonDefaults.buttonColors(Color(0xFF7603CB)),
+            shape = RoundedCornerShape(20),
+
+
+            ) {
+            Text(
+                "Cadastrar Evento",
+                style = TextStyle(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 18.sp
+                )
+            )
+        }
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+                LazyColumn(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(horizontal = 16.dp)
+
+                ) {
+                    items(events) { event ->
+                        EventCard(event)
+                        Spacer(modifier = Modifier.height(16.dp))
+                    }
+                }
+
+    }
+
+
 }
 
 @Composable
 fun EventCard(event: Event) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        elevation = CardDefaults.cardElevation(4.dp)
+        colors = CardDefaults.cardColors(
+            containerColor = Color.Black.copy(alpha = 0.2f),
+        )
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier.padding(16.dp),
         ) {
-            Text(text = "Nome: ${event.name}")
-            Text(text = "Descrição: ${event.description}")
-            Text(text = "Data de Início: ${event.startDate}")
-            Text(text = "Data de Fim: ${event.endDate}")
-            Text(text = "Localização: ${event.location}")
-            Text(text = "Participantes: ${event.participants.joinToString(", ")}")
+            EventInfo(label = "Nome:", value = event.name)
+            EventInfo(label = "Descrição:", value = event.description)
+            EventInfo(label = "Data de Início:", value = event.startDate)
+            EventInfo(label = "Data de Fim:", value = event.endDate)
+            EventInfo(label = "Localização:", value = event.location)
+            EventInfo(label = "Participantes:", value = event.participants.joinToString(","))
         }
+    }
+}
+
+@Composable
+fun EventInfo(label: String, value: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Text(
+            text = label,
+            style = TextStyle(fontWeight = FontWeight.Bold, color = Color.White)
+        )
+        Text(
+            text = value,
+            style = TextStyle(fontWeight = FontWeight.Normal, color = Color.White),
+            modifier = Modifier.padding(start = 8.dp) // Adiciona espaço entre a label e o valor
+        )
     }
 }
