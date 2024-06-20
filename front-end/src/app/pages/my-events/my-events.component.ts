@@ -5,13 +5,13 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-user-events',
+  selector: 'app-my-events',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './user-events.component.html',
-  styleUrl: './user-events.component.css'
+  templateUrl: './my-events.component.html',
+  styleUrl: './my-events.component.css'
 })
-export class UserEventsComponent {
+export class MyEventsComponent {
   events: iEvent[] = [];
 
   constructor(private eventService: EventService, private router: Router) { }
@@ -29,6 +29,10 @@ export class UserEventsComponent {
 
   navigateToEventDetail(id: string){
     this.router.navigateByUrl(`/event-details/${id}`);
+  }
+
+  updateEvent(id:string):void{
+    this.router.navigateByUrl(`/create-event/${id}`);
   }
 
   deleteEvent(id: string): void {

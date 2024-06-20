@@ -25,18 +25,6 @@
       ]
     },
     {
-      "id": "4",
-      "name": "Evento 4",
-      "description": "Descrição do Evento 4",
-      "startDate": "2023-04-01T09:00:00",
-      "endDate": "2023-04-01T18:00:00",
-      "location": "Localização do Evento 4",
-      "participants": [
-        "Participante 7",
-        "Participante 8"
-      ]
-    },
-    {
       "id": "5",
       "name": "Evento 5",
       "description": "Descrição do Evento 5",
@@ -61,89 +49,20 @@
       ]
     },
     {
-      "id": "7",
-      "name": "Evento 7",
+      "name": "Evento 8",
       "description": "Descrição do Evento 7",
       "startDate": "2023-07-01T09:00:00",
       "endDate": "2023-07-01T18:00:00",
       "location": "Localização do Evento 7",
-      "participants": [
-        "Participante 13",
-        "Participante 14"
-      ]
+      "id": "7"
     },
     {
-      "id": "3b4b",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-05-28",
-      "endDate": "2024-06-24",
-      "location": "aaaa",
-      "participants": "22222"
-    },
-    {
-      "id": "66cd",
-      "name": "nome aki ",
-      "description": "desc aki",
-      "startDate": "2024-06-20",
-      "endDate": "2024-06-20",
-      "location": "aki"
-    },
-    {
-      "id": "93ca",
-      "name": "",
-      "description": "",
-      "startDate": "",
-      "endDate": "",
-      "location": ""
-    },
-    {
-      "id": "8b1c",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-11",
-      "endDate": "2024-06-15",
-      "location": "a"
-    },
-    {
-      "id": "a9ce",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-21",
-      "endDate": "2024-06-13",
-      "location": "a"
-    },
-    {
-      "id": "034f",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-14",
-      "endDate": "2024-06-20",
-      "location": "a"
-    },
-    {
-      "id": "a4c1",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-11",
-      "endDate": "2024-06-21",
-      "location": "a"
-    },
-    {
-      "id": "41f9",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-19",
+      "name": "avvv",
+      "description": "avvv",
+      "startDate": "2024-06-15",
       "endDate": "2024-06-14",
-      "location": "a"
-    },
-    {
-      "id": "dd92",
-      "name": "a",
-      "description": "a",
-      "startDate": "2024-06-19",
-      "endDate": "2024-06-19",
-      "location": "a"
+      "location": "a",
+      "id": "85a0"
     }
   ]
 }

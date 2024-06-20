@@ -37,10 +37,11 @@ export class CreateEventComponent {
     });
 
     this.eventId = this.route.snapshot.params['id'];
+    
   }
 
   ngOnInit(): void {
-    if (this.eventId) {
+    if (this.eventId != 'new') {
       this.eventService.getEvent(this.eventId).subscribe((event) => {
         this.eventForm.patchValue(event);
       });
@@ -50,18 +51,21 @@ export class CreateEventComponent {
   onSubmit(): void {
     if (this.eventForm.valid) {
       // Verifica se o formulário é válido
-      if (this.eventId) {
+      if (this.eventId != 'new') {
         this.eventService
           .updateEvent(this.eventId, this.eventForm.value)
           .subscribe(() => {
-            this.router.navigate(['/events']);
-            this.toastr.success('Evento cadastrado com sucesso.', '', {
+            this.router.navigate(['/home']);
+            this.toastr.warning('Evento editado com sucesso.', '', {
               progressBar: true,
             });
           });
       } else {
         this.eventService.createEvent(this.eventForm.value).subscribe(() => {
           this.router.navigate(['/home']);
+          this.toastr.success('Evento cadastrado com sucesso.', '', {
+            progressBar: true,
+          });
         });
       }
     } else {

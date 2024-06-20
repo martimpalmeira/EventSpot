@@ -11,8 +11,9 @@
         </p>
   
         <div class="btn-container">
-          <button (click)="deleteEvent(event.id)">Cancelar</button>
-        </div>
+            <button class="edit-btn" (click)="updateEvent(event.id)">Editar</button>
+            <button class="delete-btn" (click)="deleteEvent(event.id)">Remover</button>
+          </div>
       </div>
       <!-- <button (click)="deleteEvent(event.id)">Delete</button> -->
     </div>
