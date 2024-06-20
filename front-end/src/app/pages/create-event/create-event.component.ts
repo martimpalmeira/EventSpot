@@ -9,11 +9,12 @@ import {
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { ToastrService } from 'ngx-toastr';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-create-event',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, HeaderComponent],
   templateUrl: './create-event.component.html',
   styleUrl: './create-event.component.css',
 })

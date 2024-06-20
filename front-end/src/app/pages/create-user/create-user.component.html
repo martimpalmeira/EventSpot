@@ -1,0 +1,23 @@
+<div class="form-page">
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <h2>Cadastro de usuário</h2>
+    <input placeholder="Email" type="email" formControlName="email" />
+
+    <input placeholder="Password" formControlName="password" type="password" />
+    <input
+      placeholder="Confirm Password"
+      formControlName="password"
+      type="password"
+    />
+    <p>
+      Já tem uma conta?
+      <a class="create-account-link" (click)="redirectToLogin()">
+        Faça o login</a
+      >
+    </p>
+
+    <div class="button-container">
+      <button type="submit">Registrar</button>
+    </div>
+  </form>
+</div>

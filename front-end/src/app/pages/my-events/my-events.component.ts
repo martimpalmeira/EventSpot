@@ -3,11 +3,12 @@ import { iEvent } from '../../interfaces/iEvent';
 import { EventService } from '../../services/event.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-my-events',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './my-events.component.html',
   styleUrl: './my-events.component.css'
 })

@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { EventService } from '../../services/event.service';
 import { iEvent } from '../../interfaces/iEvent';
 import { CommonModule } from '@angular/common';
+import { HeaderComponent } from '../../components/header/header.component';
 
 @Component({
   selector: 'app-event-details',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './event-details.component.html',
   styleUrl: './event-details.component.css',
 })

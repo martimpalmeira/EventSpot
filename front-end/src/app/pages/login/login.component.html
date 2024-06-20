@@ -1,1 +1,14 @@
-<p>login works!</p>
+<div class="form-page">
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <h2>Login</h2>
+    <input placeholder="Email" type="email" formControlName="email" />
+
+    <input placeholder="Password" formControlName="password" type="password" />
+    <p>
+      Não tem uma conta? <a class="create-account-link" (click)="redirectToCreateAccount()"> Increva-se</a>
+    </p>
+    <div class="button-container">
+      <button type="submit">Entrar</button>
+    </div>
+  </form>
+</div>

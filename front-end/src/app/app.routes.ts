@@ -4,6 +4,8 @@ import { UserEventsComponent } from './pages/user-events/user-events.component';
 import { CreateEventComponent } from './pages/create-event/create-event.component';
 import { EventDetailsComponent } from './pages/event-details/event-details.component';
 import { MyEventsComponent } from './pages/my-events/my-events.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CreateUserComponent } from './pages/create-user/create-user.component';
 
 export const routes: Routes = [
   { path: 'home', component: ListEventsComponent },
@@ -16,4 +18,6 @@ export const routes: Routes = [
     redirectTo: '/home',
     pathMatch: 'full',
   },
+  { path: 'login', component: LoginComponent },
+  { path: 'create-account', component: CreateUserComponent },
 ];
