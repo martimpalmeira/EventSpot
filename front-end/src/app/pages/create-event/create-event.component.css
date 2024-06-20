@@ -1,0 +1,58 @@
+.form-page{
+    background-color: #2C2C2C;
+    height: 100%;
+    color: white;
+    padding: 24px;
+}
+
+form h2{
+    text-align: center;
+}
+
+form{
+    background-color: #4C4C4C;
+    margin: 0 auto;
+    border-radius: 8px;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 600px;
+}
+
+form input, form textarea{
+    border-radius: 8px;
+    height: 40px;
+    background-color: #2C2C2C;
+    color: white;
+    border: none;
+    padding: 0px 8px;
+}
+
+form textarea{
+    padding-top: 8px;
+    height: 80px;
+}
+
+form input::placeholder{
+    color: rgb(129, 129, 129);
+}
+
+
+form button{
+    background-color: #7603CB;
+    width: 50%;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    padding: 12px 0px;
+    cursor: pointer;
+    max-width: 200px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}

@@ -52,33 +52,33 @@ data class Event(
 fun getSampleEvents(): List<Event> {
     return listOf(
         Event(
-            "Evento 1",
-            "Descrição do Evento 1",
-            "01/01/2023",
-            "03/01/2023",
-            "Localização do Evento 1",
-            listOf("Participante 1", "Participante 2")
+            "Festival de Cinema Internacional",
+            "O Festival de Cinema Internacional apresenta uma seleção de filmes premiados e produções independentes de todo o mundo.",
+            "10/05/2024",
+            "15/05/2024",
+            "Cineplex Downtown, Nova York",
+            listOf("John Smith", "Emily Johnson", "Michael Brown")
         ), Event(
-            "Evento 2",
-            "Descrição do Evento 2",
-            "05/01/2023",
-            "07/01/2023",
-            "Localização do Evento 2",
-            listOf("Participante 3", "Participante 4")
+            "Expedição de Trilha na Montanha",
+            "Junte-se a nós para uma emocionante expedição de trilha na montanha, explorando vistas deslumbrantes e paisagens naturais.",
+            "20/06/2024",
+            "22/06/2024",
+            "Trilha da Montanha Verde, Colorado",
+            listOf("Sophia Martinez", "David Wilson", "Maria Garcia")
         ), Event(
-            "Evento 3",
-            "Descrição do Evento 3",
-            "05/01/2023",
-            "07/01/2023",
-            "Localização do Evento 3",
-            listOf("Participante 3", "Participante 4")
+            "Festival Gastronômico Local",
+            "Experimente uma deliciosa variedade de pratos locais, desde pratos tradicionais até culinária internacional.",
+            "15/07/2024",
+            "17/07/2024",
+            "Praça da Cidade, São Paulo",
+            listOf("Ana Silva", "Lucas Oliveira", "Camila Santos")
         ), Event(
-            "Evento 4",
-            "Descrição do Evento 4",
-            "05/01/2023",
-            "07/01/2023",
-            "Localização do Evento 4",
-            listOf("Participante 3", "Participante 4")
+            "Exposição de Arte Contemporânea",
+            "Descubra as mais recentes obras de artistas contemporâneos em uma exposição de arte imperdível.",
+            "05/08/2024",
+            "07/08/2024",
+            "Galeria de Arte Moderna, Londres",
+            listOf("Emma Thompson", "Daniel Brown", "Sophie Wilson")
         )
     )
 }
@@ -224,7 +224,7 @@ fun EventCard(event: Event) {
 @Composable
 fun EventInfo(label: String, value: String) {
     Row(
-        modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
+        modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.Top
     ) {
         Text(
             text = label, style = TextStyle(fontWeight = FontWeight.Bold, color = Color.White)

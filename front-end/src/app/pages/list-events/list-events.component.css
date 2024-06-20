@@ -1,0 +1,66 @@
+.list-events-page{
+    background-color: #2C2C2C;
+    height: 100%;
+    padding: 24px;
+}
+
+.list-events-page .event-card-container{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.event-date{
+    background-color: #2C2C2C;
+    border-radius: 8px;
+    padding: 4px 8px;
+    color: white;
+}
+
+.event-card{
+    background-color: #4C4C4C;
+    color: white;
+    padding: 24px;
+    border-radius: 8px;
+    max-width: 600px;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.event-card-top{
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.event-name{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+.event-card button{
+    background-color: #7603CB;
+    width: 50%;
+    border-radius: 8px;
+    border: none;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: white;
+    padding: 12px 0px;
+    cursor: pointer;
+    max-width: 200px;
+    min-width: 150px;
+}
+
+.event-card button:hover{
+    background-color: #8524ca;
+}

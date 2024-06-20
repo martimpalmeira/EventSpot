@@ -1,0 +1,19 @@
+<div class="list-events-page">
+  <div class="event-card-container">
+    <div class="event-card" *ngFor="let event of events">
+      <div class="event-card-top">
+        <p class="event-name">{{ event.name }}</p>
+        <p class="event-date">{{ event.startDate | date  }}</p>
+      </div>
+
+      <p class="description">
+        {{ event.description }}
+      </p>
+
+      <div class="btn-container">
+        <button (click)="navigateToEventDetail(event.id)">Saiba mais</button>
+      </div>
+    </div>
+    <!-- <button (click)="deleteEvent(event.id)">Delete</button> -->
+  </div>
+</div>

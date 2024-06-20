@@ -1,0 +1,27 @@
+<div class="list-events-page">
+    <div class="event-card-container">
+      <div class="event-card">
+        <div class="event-card-top">
+          <p class="event-name">{{ event.name }}</p>
+          <p class="event-date">{{ event.startDate | date: 'dd/MM'}} - {{ event.endDate | date: 'dd/MM'}}</p>
+        </div>
+
+        <p>{{event.location}}</p>
+  
+        <p class="description">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita nobis
+          laudantium nesciunt cupiditate veniam facere consequuntur, aliquam,
+          inventore eligendi repellat quo nemo tenetur! Quasi non ipsam nisi ipsum
+          sint beatae?
+        </p>
+
+        <p>{{event.participants.length}} participantes inscritos</p>
+  
+        <div class="btn-container">
+          <button>Participar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  

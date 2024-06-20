@@ -1,0 +1,16 @@
+<div class="form-page">
+  <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <h2>{{ eventId ? "Edit" : "Create" }} Event</h2>
+    <input placeholder="Name" formControlName="name" />
+    <textarea
+      placeholder="Description"
+      formControlName="description"
+    ></textarea>
+    <input placeholder="Data de início" formControlName="startDate" type="date" />
+    <input placeholder="Data de fim" formControlName="endDate" type="date" />
+    <input placeholder="Localização" formControlName="location" />
+    <div class="button-container">
+      <button type="submit">Salvar</button>
+    </div>
+  </form>
+</div>

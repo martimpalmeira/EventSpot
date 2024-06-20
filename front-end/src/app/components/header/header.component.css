@@ -1,0 +1,36 @@
+.header{
+    background-color: #373737;
+    color: white;
+    padding: 24px;
+}
+
+.header ul{
+    display: flex;
+    gap: 32px;
+    justify-content: flex-end;
+}
+
+.header ul li{
+    list-style: none;
+    
+}
+
+.header ul li a{
+    cursor: pointer;
+    text-decoration: none;
+   
+}
+
+.link{
+    color: white;
+    opacity: 0.4;
+}
+
+.header ul li a:hover{
+   opacity: 0.8;
+}
+
+.active{
+   opacity: 1;
+    
+}
